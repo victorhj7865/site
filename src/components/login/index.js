@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import style from "./style.module.css";
 import { Icon } from "@iconify/react";
-import InputComponente from "../InputComponente";
+import {InputComponente, senhaComponente} from "../InputComponente";
 
 const Login = () => {
   const [newpassword, setnewpassword] = useState(true);
@@ -16,15 +16,8 @@ const Login = () => {
     return (
       <div className={style.conteiner}>
         <h1 className={style.titulo}> Entrar no jogo </h1>
-        <InputComponente></InputComponente>
-        <div className={style.caixaiput}>
-          <Icon icon="mdi:password" width="30px" />
-          <input
-            className={style.username1}
-            placeholder="Digite sua senha..."
-            onChange={(e) => setLoginUserSenha(e.target.value)}
-          ></input>
-        </div>
+        <InputComponente inputvalue={userEmail} onchangeDefora={(e) => setUserEmail(e.target.value)}></InputComponente>
+        <senhaComponente inputvalue={userLoginSenha} onchangeDaSenha={(e) => setLoginUserSenha(e.target.value)}></senhaComponente>
         <button
           className={style.botao}
           onClick={() => alert(userEmail == userLoginEmail)}
@@ -39,24 +32,11 @@ const Login = () => {
   return (
     <div className={style.conteiner}>
       <h1 className={style.titulo}> Criar uma conta</h1>
-      <InputComponente></InputComponente>
-      <InputComponente></InputComponente>
-      <InputComponente></InputComponente>
-      <div className={style.caixaiput}>
-        <Icon icon="mdi:password" width="30px" />
-        <input
-          className={style.username1}
-          placeholder="Digite sua senha..."
-          onChange={(e) => setUserSenha(e.target.value)}
-        ></input>
-      </div>
-      <div className={style.caixaiput}>
-        <Icon icon="mdi:password" width="30px" />
-        <input
-          className={style.username1}
-          placeholder="Digite sua senha..."
-        ></input>
-      </div>
+      <InputComponente inputvalue={userName} onchangeDefora={(e) => setUserName(e.target.value)}></InputComponente>
+      <InputComponente inputvalue={userEmail} onchangeDefora={(e) => setUserEmail(e.target.value)}></InputComponente>
+      <InputComponente inputvalue={userLoginEmail} onchangeDefora={(e) => setLoginUserEmail(e.target.value)}></InputComponente>
+      <senhaComponente inputvalue={userSenha} onchangeDaSenha={(e) => setUserSenha(e.target.value)}></senhaComponente>
+      <senhaComponente inputvalue={userLoginSenha} onchangeDaSenha={(e) => setLoginUserSenha(e.target.value)}></senhaComponente>
       <button className={style.botao} onClick={() => setnewpassword(true)}>
         Criar conta
       </button>
