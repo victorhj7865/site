@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
 import {InputComponente, senhaComponente} from "../InputComponente";
 
 const Login = () => {
-  const [newpassword, setnewpassword] = useState(true);
+  const [newpassword, setnewpassword] = useState(false);
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userLoginEmail, setLoginUserEmail] = useState("");
@@ -16,7 +16,12 @@ const Login = () => {
   // e-mail1 e e-mail2 tem que ser igual
   // senha 1 e senha2 tem que ser igual
   // quando adiciona um usuario ir para a tela de login
+  // ver se usuario ja existe
   function cadastrarUsuario(){
+    if (userName === '') {
+      alert("nome de usuario n foi invormado")
+      
+    } 
   let user = {
     nome:userName,
     email:userEmail,
@@ -53,7 +58,7 @@ const Login = () => {
       <InputComponente inputvalue={userLoginEmail} onchangeDefora={(e) => setLoginUserEmail(e.target.value)}></InputComponente>
       <senhaComponente inputvalue={userSenha} onchangeDaSenha={(e) => setUserSenha(e.target.value)}></senhaComponente>
       <senhaComponente inputvalue={userLoginSenha} onchangeDaSenha={(e) => setLoginUserSenha(e.target.value)}></senhaComponente>
-      <button className={style.botao} onClick={() => cadastrarUsuario()}>
+      <button className={style.botao} onClick={cadastrarUsuario}>
         Criar conta
       </button>
     </div>
