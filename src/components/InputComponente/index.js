@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import style from "./style.module.css";
 import { Icon } from "@iconify/react";
 
-export function InputComponente({inputvalue, onchangeDefora}) {
+function InputComponente({inputvalue, onchangeDefora}) {
 
 
   return (
@@ -19,12 +19,12 @@ export function InputComponente({inputvalue, onchangeDefora}) {
   );
   
 }
-export function senhaComponente() {
+function SenhaComponente({inputvalue, onchangeDaSenha}) {
   
 
 return (
   <div className={style.caixaiput}>
-    <Icon icon="password" width="30px" />
+    <Icon icon="mdi:password" width="30px" />
     <input
       className={style.username1}
       placeholder="Digite sua senha"
@@ -35,4 +35,4 @@ return (
 );
 
 }
-
+export {SenhaComponente,InputComponente}

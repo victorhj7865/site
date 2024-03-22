@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import style from "./style.module.css";
 import { Icon } from "@iconify/react";
-import {InputComponente, senhaComponente} from "../InputComponente";
+import {InputComponente, SenhaComponente} from "../InputComponente";
 
 const Login = () => {
   const [newpassword, setnewpassword] = useState(false);
@@ -21,7 +21,14 @@ const Login = () => {
     if (userName === '') {
       alert("nome de usuario n foi invormado")
       
-    } 
+    }
+    if (userEmail === ''){
+      alert("voce n tem e-mail cadastrado")
+    }  
+    if (userSenha === userLoginSenha && userSenha != ""){
+      alert("voce n tem e-mail cadastrado")
+    }
+  
   let user = {
     nome:userName,
     email:userEmail,
@@ -37,7 +44,7 @@ const Login = () => {
       <div className={style.conteiner}>
         <h1 className={style.titulo}> Entrar no jogo </h1>
         <InputComponente inputvalue={userEmail} onchangeDefora={(e) => setUserEmail(e.target.value)}></InputComponente>
-        <senhaComponente inputvalue={userLoginSenha} onchangeDaSenha={(e) => setLoginUserSenha(e.target.value)}></senhaComponente>
+        <SenhaComponente inputvalue={userLoginSenha} onchangeDaSenha={(e) => setLoginUserSenha(e.target.value)}></SenhaComponente>
         <button
           className={style.botao}
           onClick={() => alert(userEmail == userLoginEmail)}
@@ -56,8 +63,8 @@ const Login = () => {
       <InputComponente inputvalue={userName} onchangeDefora={(e) => setUserName(e.target.value)}></InputComponente>
       <InputComponente inputvalue={userEmail} onchangeDefora={(e) => setUserEmail(e.target.value)}></InputComponente>
       <InputComponente inputvalue={userLoginEmail} onchangeDefora={(e) => setLoginUserEmail(e.target.value)}></InputComponente>
-      <senhaComponente inputvalue={userSenha} onchangeDaSenha={(e) => setUserSenha(e.target.value)}></senhaComponente>
-      <senhaComponente inputvalue={userLoginSenha} onchangeDaSenha={(e) => setLoginUserSenha(e.target.value)}></senhaComponente>
+      <SenhaComponente inputvalue={userSenha} onchangeDaSenha={(e) => setUserSenha(e.target.value)}></SenhaComponente>
+      <SenhaComponente inputvalue={userLoginSenha} onchangeDaSenha={(e) => setLoginUserSenha(e.target.value)}></SenhaComponente>
       <button className={style.botao} onClick={cadastrarUsuario}>
         Criar conta
       </button>
