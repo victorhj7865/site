@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import style from "./style.module.css";
 import { Icon } from "@iconify/react";
 
-function InputComponente({inputvalue, onchangeDefora}) {
+function InputComponente({inputvalue, onchangeDefora, inputtitle}) {
 
 
   return (
@@ -11,7 +11,7 @@ function InputComponente({inputvalue, onchangeDefora}) {
       <Icon icon="ic:round-email" width="30px" />
       <input
         className={style.username}
-        placeholder="Digite seu e-mail..."
+        placeholder={inputtitle}
         onChange={onchangeDefora}
         value={inputvalue}
       ></input>
@@ -19,7 +19,7 @@ function InputComponente({inputvalue, onchangeDefora}) {
   );
   
 }
-function SenhaComponente({inputvalue, onchangeDaSenha}) {
+function SenhaComponente({inputvalue, onchangeDaSenha, inputtitle}) {
   
 
 return (
@@ -27,7 +27,7 @@ return (
     <Icon icon="mdi:password" width="30px" />
     <input
       className={style.username1}
-      placeholder="Digite sua senha"
+      placeholder={inputtitle}
       onChange={onchangeDaSenha}
       value={inputvalue}
     ></input>
