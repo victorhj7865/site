@@ -11,7 +11,19 @@ const Login = () => {
   const [userLoginEmail, setLoginUserEmail] = useState("");
   const [userSenha, setUserSenha] = useState("");
   const [userLoginSenha, setLoginUserSenha] = useState("");
-  const [userList, setUserList] = useState([]);
+  const [userList, setUserList] = useState([
+    { nome: "Victor", email: "Victor@Email", senha: "VictorSenha" },
+    { nome: "João", email: "João@Email", senha: "JoãoSenha" },
+  ]);
+
+  let user = {
+    nome: "João",
+    email: "João@Email",
+    senha: "senhaJoão",
+  };
+
+   /* if (userList[0].nome != user.nome && userList[0].email != user.email)
+    userList.push(user);  */
   // usuario tem que ter nome e-mail e senha
   // e-mail1 e e-mail2 tem que ser igual
   // senha 1 e senha2 tem que ser igual
@@ -27,7 +39,6 @@ const Login = () => {
     if (userName === "") {
       return alert("nome de usuario n foi invormado");
     }
-
     let user = {
       nome: userName,
       email: userEmail,
