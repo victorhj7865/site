@@ -16,20 +16,13 @@ const Login = () => {
     { nome: "João", email: "João@Email", senha: "JoãoSenha" },
   ]);
 
-  let user = {
-    nome: "João",
-    email: "João@Email",
-    senha: "senhaJoão",
-  };
-
-   /* if (userList[0].nome != user.nome && userList[0].email != user.email)
-    userList.push(user);  */
-  // usuario tem que ter nome e-mail e senha
-  // e-mail1 e e-mail2 tem que ser igual
-  // senha 1 e senha2 tem que ser igual
-  // quando adiciona um usuario ir para a tela de login
-  // ver se usuario ja existe
   function cadastrarUsuario() {
+    if (
+      userList.find((item) => {
+        if (item.nome === userName) return item;
+      })
+    )
+      return alert("esse usuário ja existe");
     if (userSenha != userLoginSenha || userSenha === "") {
       return alert("voce n tem senha cadastrado");
     }
@@ -64,7 +57,7 @@ const Login = () => {
         ></SenhaComponente>
         <button
           className={style.botao}
-          onClick={() => alert(userEmail == userLoginEmail)}
+          onClick={() => console.log(userList)}
         >
           logar
         </button>
